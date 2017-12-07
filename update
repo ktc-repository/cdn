@@ -1,0 +1,1 @@
+git add -A && git commit -m "update v2.$1" && git push && git tag -a "v2.$1" -m "Versión v2.$1" && git push --tags

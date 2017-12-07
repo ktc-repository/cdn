@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono');
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'PT Mono', monospace;
+}
+
+header {
+  height: 10vh;
+}
+
+.emoticon{
+  font-size: 2em;
+}
+
+.container-fluid {
+  width: 90%;
+}
+
+.landingPage {
+  height: 90vh;
+}
+
+.landing-text {
+  text-align: center;
+  position: relative;
+  top: 10%;
+}
+
+.landing-text h1 {
+  font-size: 4.5em;
+  padding: 2%;
+  font-weight: 900;
+}
+
+.landing-text p {
+  font-size: 2em;
+  font-weight: bolder;
+  padding: 2%;
+}
+
+.myworks {
+  height: 100%;
+}
+
+.myworks h3 {
+  font-size: 2em;
+}
+
+.work-img {
+  width: 300px;
+  height: 220px;
+}
+
+.thumbnail {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.thumbnail:hover {
+  opacity: 0.4;
+}
+
+.col-md-6 {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+
+.aboutme {
+  height: 100vh;
+}
+.propic {
+  width: 250px;
+  height: 250px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.aboutme h3 {
+  font-size: 2em;
+}
+.aboutme p {
+  font-size: 1.5em;
+  width: 80%;
+  margin: 0 auto;
+  line-height: 180%;
+}
+
+.box {
+  padding: 5%;
+  border: 2px #000 solid;
+  font-weight: 800;
+  letter-spacing: 2px;
+  width: 250px;
+  margin: 0 auto;
+  transition: 0.5s ease-in;
+}
+
+.twitter:hover {
+  background-color: #0091ea;
+  color: #fff;
+}
+.git:hover {
+  background-color: #000;
+  color: #fff;
+}
+.mail:hover {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+.social a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.social h3 {
+  font-size: 2em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 10%;
+  border-top: 2px #000 solid;
+} 
+
+@media screen and (max-width: 600px) {
+  .list-items {
+    text-align: center;
+  }
+  
+  .landing-text {
+    position: relative;
+    top: 20%;
+  }
+  
+  .col-md-6 {
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+  
+  .aboutme {
+    height: auto;
+  }
+  
+  .landing-text h1 {
+    font-size: 3.5em;
+  }
+  
+  .landing-text p {
+    font-size: 1.5em;
+  }
+  
+  .propic {
+    width: 200px;
+    height: 200px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  
+  .aboutme p {
+    font-size: 1em;
+    margin-bottom: 10%;
+  }
+  
+  .box {
+    width: 220px;
+    margin-bottom: 5%;
+  }
+}
