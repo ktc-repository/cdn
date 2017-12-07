@@ -41,7 +41,7 @@ Connection to the CDN host
 **CDN_PUBLIC**
 Access for the public to the CDN
 
-####Full example####
+**Full example**
 
 ```bash
 FILESYSTEM_DRIVER=sftp
