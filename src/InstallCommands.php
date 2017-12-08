@@ -50,7 +50,7 @@ class InstallCommands extends Command
         $this->info('The repository is done in: '.getenv('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
         $this->info($runTask);
 
-        $templateFile = fopen(__dir__."/templates/envSample.txt", "r");
+        $templateFile = file_get_contents(__dir__."/templates/envSample.txt");
 
         $templateFile = str_replace('CDN_BASE_SUBDIRECTORY=', 'CDN_BASE_SUBDIRECTORY="'.$directory.'"', $templateFile);
         $templateFile = str_replace('CDN_SSH_USERNAME=', 'CDN_SSH_USERNAME="'.$user.'"', $templateFile);
