@@ -34,6 +34,7 @@ class InstallCommands extends Command
         //$this->exportViews();
         copy(__dir__."/templates/Envoy.blade.php", base_path()."/Envoy.blade.php");
         chmod(base_path()."/Envoy.blade.php", 0777);
+        chmod(base_path()."/.env", 0777);
 
         $directory = $this->ask('Name of the new CDN, no special characters or spaces (example: new_client');
         $sshUser = $this->ask('Write your SSH user (example: root@new-dev.ktcagency.com');
