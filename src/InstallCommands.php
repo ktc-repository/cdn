@@ -50,7 +50,7 @@ class InstallCommands extends Command
         $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST="'.ltrim($host).'"', $templateFile);
         $templateFile = str_replace('CDN_SSH_PRIVATE_KEY_PATH=', 'CDN_SSH_PRIVATE_KEY_PATH="'.ltrim($pathSSH).'"', $templateFile);
 
-        file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND | LOCK_EX);
+        file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND);
 
         $this->info('Creating the remote directory...');
         $runTask = exec('envoy run cdn');
