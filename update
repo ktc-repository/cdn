@@ -1,1 +1,1 @@
-git add -A && git commit -m "Update v$1" && git push && git tag -a "v$1" -m "v$1" && git push --tags
+git add -A && git commit -m "Update $1" && git push && git tag -a "$1" -m "$1" && git push --tags
