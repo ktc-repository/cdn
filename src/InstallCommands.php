@@ -34,6 +34,7 @@ class InstallCommands extends Command
         //$this->exportViews();
         copy(__dir__."/templates/Envoy.blade.php", base_path()."/Envoy.blade.php");
         chmod(base_path()."/Envoy.blade.php", 0777);
+        /*
         chmod(base_path()."/.env", 0777);
 
         $directory = $this->ask('Name of the new CDN, no special characters or spaces (example: new_client');
@@ -54,11 +55,11 @@ class InstallCommands extends Command
         //file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND);
 
         sleep(2);
+        */
 
 
         $this->info('Creating the remote directory...');
         $runTask = exec('envoy run cdn');
-        $this->info('The new configuration was created in your .env file');
         $this->info('The repository is done in: '.env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
         $this->info($runTask);
     
