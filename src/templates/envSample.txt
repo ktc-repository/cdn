@@ -1,5 +1,6 @@
 
 
+
 FILESYSTEM_DRIVER=cdn
 CDN_PUBLIC=http://cdn.new-stg.ktc.mx
 CDN_BASE=/var/sftp/cdn

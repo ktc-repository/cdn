@@ -33,11 +33,13 @@ class InstallCommands extends Command
     {
 
         
-        $templateFile = file_get_contents(__dir__."/templates/envSample.txt");
+        $checkFile = file_get_contents(base_path()."/.env");
         
         $check = strstr($templateFile, 'SSH_PRIVATE_KEY_PATH');
 
         if($check==false OR $check==''){
+
+            
 
             copy(__dir__."/templates/Envoy.blade.php", base_path()."/Envoy.blade.php");
             chmod(base_path()."/Envoy.blade.php", 0777);
@@ -55,7 +57,7 @@ class InstallCommands extends Command
             $user = $getUser[0];
             $host = $getUser[1];
 
-            
+            $templateFile = file_get_contents(__dir__."/templates/envSample.txt");
             $templateFile = str_replace('CDN_BASE_SUBDIRECTORY=', 'CDN_BASE_SUBDIRECTORY="'.ltrim($directory).'"', $templateFile);
             $templateFile = str_replace('CDN_SSH_USERNAME=', 'CDN_SSH_USERNAME="'.ltrim($user).'"', $templateFile);
             $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST="'.ltrim($host).'"', $templateFile);
