@@ -35,7 +35,7 @@ class InstallCommands extends Command
         
         $checkFile = file_get_contents(base_path()."/.env");
         
-        $check = strstr($templateFile, 'SSH_PRIVATE_KEY_PATH');
+        $check = strstr($checkFile, 'SSH_PRIVATE_KEY_PATH');
 
         if($check==false OR $check==''){
 
