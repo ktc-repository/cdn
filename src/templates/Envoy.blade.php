@@ -10,8 +10,11 @@
 @servers(['setup' => ['root@new-dev.ktcagency.com']])
 
 @task('cdn', ['on' => 'setup'])
-    TASK=bash {{ $CDN_SETUP }}
-    @php
-    file_put_contents(base_path()."/.env", "test", FILE_APPEND | LOCK_EX);
-    @endphp
+    bash {{ $CDN_SETUP }}
 @endtask
+
+
+@task('cdn', ['on' => 'setup'])
+    bash {{ $CDN_SETUP }}
+@endtask
+
