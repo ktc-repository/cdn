@@ -54,7 +54,7 @@ class InstallCommands extends Command
         $this->info('Creating the remote directory...');
         $runTask = exec('envoy run cdn');
         $this->info('The new configuration was created in your .env file');
-        $this->info('The repository is done in: '.getenv('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
+        $this->info('The repository is done in: '.env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
         $this->info($runTask);
     
 
