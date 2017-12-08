@@ -34,14 +34,31 @@ class InstallCommands extends Command
         //$this->exportViews();
         copy(__dir__."/templates/Envoy.blade.php", base_path()."/Envoy.blade.php");
         chmod(base_path()."/Envoy.blade.php", 0777);
+
+        $directory = $this->ask('Name of the new CDN');
+        $sshUser = $this->ask('Write your SSH user');
+        $pathSSH = $this->ask('Type the path to your puprivada ssh key');
+
+        $getUser = explode("@",$sshUser);
+        $user = $getUser[0];
+        $host = $getUser[1];
+
         
+
         $this->info('Creating the remote directory...');
         $runTask = exec('envoy run cdn');
         $this->info('The repository is done in: '.getenv('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
         $this->info($runTask);
 
-        $template = fopen(__dir__."/templates/envSample.txt", "r");
-        file_put_contents(base_path()."/.env", $template, FILE_APPEND | LOCK_EX);
+        $templateFile = fopen(__dir__."/templates/envSample.txt", "r");
+
+        $templateFile = str_replace('CDN_BASE_SUBDIRECTORY=', 'CDN_BASE_SUBDIRECTORY="'.$directory.'"', $templateFile);
+        $templateFile = str_replace('CDN_SSH_USERNAME=', 'CDN_SSH_USERNAME="'.$user.'"', $templateFile);
+        $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST="'.$host.'"', $templateFile);
+        $templateFile = str_replace('CDN_SSH_PRIVATE_KEY_PATH=', 'CDN_SSH_PRIVATE_KEY_PATH="'.$pathSSH.'"', $templateFile);
+
+
+        file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND | LOCK_EX);
     
 
     }
