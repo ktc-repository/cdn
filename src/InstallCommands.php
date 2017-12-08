@@ -49,17 +49,29 @@ class InstallCommands extends Command
         $host = $getUser[1];
 
         $templateFile = file_get_contents(__dir__."/templates/envSample.txt");
-        $templateFile = str_replace('CDN_BASE_SUBDIRECTORY=', 'CDN_BASE_SUBDIRECTORY="'.ltrim($directory).'"', $templateFile);
-        $templateFile = str_replace('CDN_SSH_USERNAME=', 'CDN_SSH_USERNAME="'.ltrim($user).'"', $templateFile);
-        $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST="'.ltrim($host).'"', $templateFile);
-        $templateFile = str_replace('CDN_SSH_PRIVATE_KEY_PATH=', 'CDN_SSH_PRIVATE_KEY_PATH="'.ltrim($pathSSH).'"', $templateFile);
-        file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND);
+
+        $check = strstr($templateFile, 'SSH_PRIVATE_KEY_PATH');
+        if($check==false OR $check==''){
+            $templateFile = str_replace('CDN_BASE_SUBDIRECTORY=', 'CDN_BASE_SUBDIRECTORY="'.ltrim($directory).'"', $templateFile);
+            $templateFile = str_replace('CDN_SSH_USERNAME=', 'CDN_SSH_USERNAME="'.ltrim($user).'"', $templateFile);
+            $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST="'.ltrim($host).'"', $templateFile);
+            $templateFile = str_replace('CDN_SSH_PRIVATE_KEY_PATH=', 'CDN_SSH_PRIVATE_KEY_PATH="'.ltrim($pathSSH).'"', $templateFile);
+            file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND);
+            $this->info('Creating the remote directory...');
+            $runTask = exec('envoy run cdn');
+            $this->info('Public URL: '.env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
+            $this->info($runTask);
+        }else{
+
+            $this->info('It could not start a new installation. Existing CDN variables in your .env');
+            $this->info('It eliminates any variable of the CDN on your ENV file.');
+ 
+        }
+
+       
 
 
-        $this->info('Creating the remote directory...');
-        $runTask = exec('envoy run cdn');
-        $this->info('Public URL: '.env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
-        $this->info($runTask);
+        
     
 
     }

@@ -1,13 +1,10 @@
 
 
-
-COMMENT="--------------------------CDN------------------------"
 FILESYSTEM_DRIVER=cdn
 CDN_PUBLIC=http://cdn.new-stg.ktc.mx
 CDN_BASE=/var/sftp/cdn
 CDN_BASE_SUBDIRECTORY=
-
 CDN_SSH_USERNAME=
 CDN_SSH_HOST=
 CDN_SSH_PRIVATE_KEY_PATH=
-COMMENT="--------------------------END CDN------------------------"
+
