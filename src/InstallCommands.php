@@ -45,10 +45,10 @@ class InstallCommands extends Command
         $host = $getUser[1];
 
         $templateFile = file_get_contents(__dir__."/templates/envSample.txt");
-        $templateFile = str_replace('CDN_BASE_SUBDIRECTORY=', 'CDN_BASE_SUBDIRECTORY='.$directory, $templateFile);
-        $templateFile = str_replace('CDN_SSH_USERNAME=', 'CDN_SSH_USERNAME='.$user, $templateFile);
-        $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST='.$host, $templateFile);
-        $templateFile = str_replace('CDN_SSH_PRIVATE_KEY_PATH=', 'CDN_SSH_PRIVATE_KEY_PATH='.$pathSSH, $templateFile);
+        $templateFile = str_replace('CDN_BASE_SUBDIRECTORY=', 'CDN_BASE_SUBDIRECTORY="'.ltrim($directory).'"', $templateFile);
+        $templateFile = str_replace('CDN_SSH_USERNAME=', 'CDN_SSH_USERNAME="'.ltrim($user).'"', $templateFile);
+        $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST="'.ltrim($host).'"', $templateFile);
+        $templateFile = str_replace('CDN_SSH_PRIVATE_KEY_PATH=', 'CDN_SSH_PRIVATE_KEY_PATH="'.ltrim($pathSSH).'"', $templateFile);
 
         file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND | LOCK_EX);
 
