@@ -5,10 +5,12 @@
     //use Illuminate\Support\Facades\Config;
 
     use Illuminate\Support\ServiceProvider;
+
     use League\Flysystem\Filesystem;
     //use League\Flysystem\Sftp\SftpAdapter;
     use CDN\SftpCustomAdapter;
     use CDN\InstallCommands;
+    use CDN\InspectCommands;
     
     class CDNServiceProvider extends ServiceProvider{
         /**
@@ -43,6 +45,7 @@
         private function registerConsoleCommands()
         {
             $this->commands(InstallCommands::class);
+            $this->commands(InspectCommands::class);
         }
     }
     
