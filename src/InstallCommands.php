@@ -40,6 +40,8 @@ class InstallCommands extends Command
         $sshUser = $this->ask('Write your SSH user (example: root@new-dev.ktcagency.com');
         $pathSSH = $this->ask('Type the path to your puprivada ssh key (example: /Users/John/.ssh/id_rsa)');
 
+         
+        $getUser = str_replace('ssh ','',$getUser);
         $getUser = explode("@",$sshUser);
         $user = $getUser[0];
         $host = $getUser[1];
