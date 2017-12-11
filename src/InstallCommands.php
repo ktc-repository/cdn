@@ -71,7 +71,7 @@ class InstallCommands extends Command
             if(file_exists( base_path()."/vendor/tcg")){
 
                     $this->info('Copy the templates from voyager.');
-                    exec('cp -R '.__dir__."/templates ".base_path()."/resources/views");
+                    exec('cp -R '.__dir__."/templates/vendor ".base_path()."/resources/views");
 
             }
 
