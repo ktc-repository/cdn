@@ -40,17 +40,13 @@ class InstallCommands extends Command
         if($check==false OR $check==''){
 
 
-            
-
-
-
             copy(__dir__."/templates/Envoy.blade.php", base_path()."/Envoy.blade.php");
             chmod(base_path()."/Envoy.blade.php", 0777);
         
             chmod(base_path()."/.env", 0777);
 
-            $directory = $this->ask('Name of the new CDN, no special characters or spaces (example: new_client');
-            $sshUser = $this->ask('Write your SSH user (example: root@new-dev.ktcagency.com');
+            $directory = $this->ask('Name of the new CDN, no special characters or spaces (example: new_client)');
+            $sshUser = $this->ask('Write your SSH user (example: root@new-dev.ktcagency.com)');
             //$pathSSH = $this->ask('Type the path to your puprivada ssh key (example: /Users/John/.ssh/id_rsa)');
             $pathSSH = exec('echo $HOME/.ssh/id_rsa');
 
@@ -66,14 +62,13 @@ class InstallCommands extends Command
             $templateFile = str_replace('CDN_SSH_HOST=', 'CDN_SSH_HOST="'.ltrim($host).'"', $templateFile);
             $templateFile = str_replace('CDN_SSH_PRIVATE_KEY_PATH=', 'CDN_SSH_PRIVATE_KEY_PATH="'.ltrim($pathSSH).'"', $templateFile);
             file_put_contents(base_path()."/.env", $templateFile, FILE_APPEND);
-
             
             $this->info('Creating the remote directory...');
             $runTask = exec('envoy run cdn');
             $this->info('Public URL: '.env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
             $this->info($runTask);
             
-            if(is_dir ( base_path()."/vendor/tcg")){
+            if(file_exists( base_path()."/vendor/tcg")){
 
                     $this->info('Contains voyager.');
 
