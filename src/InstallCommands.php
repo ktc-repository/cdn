@@ -39,6 +39,12 @@ class InstallCommands extends Command
 
         if($check==false OR $check==''){
 
+            $ifExistDirectory = base_path()."/resources/views/vendor/voyager";
+            if(file_exists($ifExistDirectory)){
+                $this->error('Delete el directorio: '.$ifExistDirectory);
+                die();
+            }
+
 
             copy(__dir__."/templates/Envoy.blade.php", base_path()."/Envoy.blade.php");
             chmod(base_path()."/Envoy.blade.php", 0777);
@@ -69,17 +75,17 @@ class InstallCommands extends Command
             $this->info($runTask);
             
             if(file_exists( base_path()."/vendor/tcg")){
-
-                    $this->info('Copy the templates from voyager.');
-                    exec('cp -R '.__dir__."/templates/vendor ".base_path()."/resources/views");
-
+                    
+           
+                        $this->info('Copying templates');
+                        exec('cp -R '.__dir__."/templates/vendor ".base_path()."/resources/views");
             }
 
 
         }else{
 
-            $this->info('It could not start a new installation. Existing CDN variables in your .env');
-            $this->info('It eliminates any variable of the CDN on your ENV file.');
+            $this->error('It could not start a new installation. Existing CDN variables in your .env');
+            $this->error('It eliminates any variable of the CDN on your ENV file.');
  
         }
 
