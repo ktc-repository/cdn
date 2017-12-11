@@ -16,42 +16,7 @@ Complete documentation on the **official website of  [Laravel][001]**
 It runs on the console the following command of composer
 > composer global require **laravel/envoy**
 
-.env
--------------
-Set the following variables in your environment file.
 
-**FILESYSTEM_DRIVER**
-It defines the new driver to use (default is sftp).
-
-**CDN_BASE**
-Actual absolute path where are stored across content repositories
-
-**CDN_BASE_SUBDIRECTORY**
-ID only, create a directory for the project, do not use special characters or spaces.
-
-**CDN_SSH_USERNAME**
-User's ssh connection that is used locally.
-
-**CDN_SSH_PRIVATE_KEY_PATH**
-Key SSH connection, the path must be absolute to the computer.
-
-**CDN_SSH_HOST**
-Connection to the CDN host
-
-**CDN_PUBLIC**
-Access for the public to the CDN
-
-**Example**
-
-```bash
-FILESYSTEM_DRIVER=sftp
-CDN_BASE=/example/path
-CDN_BASE_SUBDIRECTORY=exampleProject
-CDN_SSH_USERNAME=root
-CDN_SSH_PRIVATE_KEY_PATH=/Users/example/.ssh/id_rsa
-CDN_SSH_HOST=experience.ktcagency.com
-CDN_PUBLIC=cdn.experience.ktcagency.com
-```
 
 Install the library 
 -------------
@@ -100,6 +65,42 @@ Create the new repository in the CDN Server
 -------------
 
 > php artisan cdn:install
+
+.env
+-------------
+
+**FILESYSTEM_DRIVER**
+It defines the new driver to use (default is sftp).
+
+**CDN_BASE**
+Actual absolute path where are stored across content repositories
+
+**CDN_BASE_SUBDIRECTORY**
+ID only, create a directory for the project, do not use special characters or spaces.
+
+**CDN_SSH_USERNAME**
+User's ssh connection that is used locally.
+
+**CDN_SSH_PRIVATE_KEY_PATH**
+Key SSH connection, the path must be absolute to the computer.
+
+**CDN_SSH_HOST**
+Connection to the CDN host
+
+**CDN_PUBLIC**
+Access for the public to the CDN
+
+**Example**
+
+```bash
+FILESYSTEM_DRIVER=sftp
+CDN_BASE=/example/path
+CDN_BASE_SUBDIRECTORY=exampleProject
+CDN_SSH_USERNAME=root
+CDN_SSH_PRIVATE_KEY_PATH=/Users/example/.ssh/id_rsa
+CDN_SSH_HOST=experience.ktcagency.com
+CDN_PUBLIC=cdn.experience.ktcagency.com
+```
 
 
 Ready.
