@@ -39,7 +39,10 @@ class InstallCommands extends Command
 
         if($check==false OR $check==''){
 
+
             
+
+
 
             copy(__dir__."/templates/Envoy.blade.php", base_path()."/Envoy.blade.php");
             chmod(base_path()."/Envoy.blade.php", 0777);
@@ -69,6 +72,12 @@ class InstallCommands extends Command
             $runTask = exec('envoy run cdn');
             $this->info('Public URL: '.env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY'));
             $this->info($runTask);
+            
+            if(is_dir ( base_path()."/vendor/tcg")){
+
+                    $this->info('Contains voyager.');
+
+            }
 
 
         }else{

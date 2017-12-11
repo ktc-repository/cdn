@@ -21,14 +21,7 @@
         public function boot()
         {
 
-            if (view()->exists("package.voyager")) {
-                // do some cool stuffs
-                echo 'voyager';
-            } 
-            if (view()->exists("package.tcg")) {
-                // do some cool stuffs
-                echo 'voyagertcg';
-            } 
+            
             
             $filesystem = $this->app->make('filesystem');
             $filesystem->extend('sftp', function($app, $config) {
