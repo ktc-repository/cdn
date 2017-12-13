@@ -97,8 +97,8 @@ class SftpCustomAdapter extends AbstractFtpAdapter
 
     public function getUrl(){
 
-        return env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY');
-
+        //return env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY');
+        return $this->url;
         
     }
 
