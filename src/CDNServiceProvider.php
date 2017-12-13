@@ -10,7 +10,7 @@
     //use League\Flysystem\Sftp\SftpAdapter;
     use CDN\SftpCustomAdapter;
     use CDN\InstallCommands;
-    use CDN\InspectCommands;
+    use CDN\InstallAbsolute;
     
     class CDNServiceProvider extends ServiceProvider{
         /**
@@ -47,7 +47,7 @@
         private function registerConsoleCommands()
         {
             $this->commands(InstallCommands::class);
-            $this->commands(InspectCommands::class);
+            $this->commands(InstallAbsolute::class);
         }
     }
     

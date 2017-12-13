@@ -66,6 +66,10 @@ Create the new repository in the CDN Server
 
 > php artisan cdn:install
 
+Follow the instructions
+
+After generating the installation your project will contain the following keys:
+
 .env
 -------------
 

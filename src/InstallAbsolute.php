@@ -5,20 +5,20 @@ namespace CDN;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
 
-class InspectCommands extends Command
+class InstallAbsolute extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'cdn:inspect';
+    protected $name = 'cdn:absolute';
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Inspect the remote CDN.';
+    protected $description = 'Absolute path';
     /**
      * The views that need to be exported.
      *
@@ -32,8 +32,11 @@ class InspectCommands extends Command
     public function handle()
     {
         
-        $this->info('Searching project in remote CDN.');
+        //$this->info('Searching project in remote CDN.');
         //$runTask = exec('envoy run cdn');
+        $this->laravel->make('files')->link(
+            storage_path('app/public'), 'http://example.com'
+        );
 
     }
     /**
