@@ -13,7 +13,7 @@ use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
 use phpseclib\System\SSH\Agent;
 use RuntimeException;
-use BD;
+use Illuminate\Support\Facades\DB;
 
 class SftpCustomAdapter extends AbstractFtpAdapter
 {
