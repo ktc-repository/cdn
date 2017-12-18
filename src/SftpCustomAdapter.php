@@ -417,7 +417,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
         //$test = DB::rollBack();
        // $lastID = DB::getPdo()->lastInsertId();
        // $getInfo = DB::get();
-        print_r($test);
+        //print_r($test);
 
 
         //echo DB::getPdo()->lastInsertId();
