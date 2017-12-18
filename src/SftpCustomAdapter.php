@@ -13,6 +13,7 @@ use phpseclib\Crypt\RSA;
 use phpseclib\Net\SFTP;
 use phpseclib\System\SSH\Agent;
 use RuntimeException;
+use BD;
 
 class SftpCustomAdapter extends AbstractFtpAdapter
 {
@@ -410,6 +411,8 @@ class SftpCustomAdapter extends AbstractFtpAdapter
         if ($config && $visibility = $config->get('visibility')) {
             $this->setVisibility($path, $visibility);
         }
+        //echo
+        echo DB::getPdo()->lastInsertId();
         echo $path;
 
         return true;
