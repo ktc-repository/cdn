@@ -420,7 +420,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
 
 
         //echo DB::getPdo()->lastInsertId();
-        print_r($getInfo);
+        //print_r($getInfo);
 
         return true;
     }
