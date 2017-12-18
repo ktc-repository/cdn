@@ -328,7 +328,6 @@ class SftpCustomAdapter extends AbstractFtpAdapter
                 $result = array_merge($result, $this->listDirectoryContents($path));
             }
         }
-        echo 'OK1';
 
         return $result;
     }
@@ -374,7 +373,6 @@ class SftpCustomAdapter extends AbstractFtpAdapter
         if ($this->upload($path, $contents, $config) === false) {
             return false;
         }
-        echo 'OK2';
 
         return compact('contents', 'visibility', 'path');
     }
@@ -412,14 +410,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
         if ($config && $visibility = $config->get('visibility')) {
             $this->setVisibility($path, $visibility);
         }
-        print_r($path);
-        echo '<hr/>';
-        print_r($contents);
-        echo '<hr/>';
-        print_r($config);
-        echo '<hr/>';
-
-
+        echo $path;
 
         return true;
     }
@@ -461,7 +452,6 @@ class SftpCustomAdapter extends AbstractFtpAdapter
      */
     public function update($path, $contents, Config $config)
     {
-        echo 'OK4';
         return $this->write($path, $contents, $config);
     }
 
@@ -470,7 +460,6 @@ class SftpCustomAdapter extends AbstractFtpAdapter
      */
     public function updateStream($path, $contents, Config $config)
     {
-        echo 'OK5';
         return $this->writeStream($path, $contents, $config);
     }
 
@@ -572,7 +561,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
      */
     public function getVisibility($path)
     {
-        echo 'OK5';
+
         return $this->getMetadata($path);
     }
 
