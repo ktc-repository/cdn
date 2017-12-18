@@ -412,9 +412,11 @@ class SftpCustomAdapter extends AbstractFtpAdapter
             $this->setVisibility($path, $visibility);
         }
         //echo
-        $pdo = DB::connection()->getPdo();
+        $lastID = DB::getPdo()->lastInsertId();
+        $getInfo = DB::find($lastID)->get();
+
         //echo DB::getPdo()->lastInsertId();
-        print_r($pdo);
+        print_r($getInfo);
 
         return true;
     }
