@@ -99,7 +99,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
     public function getUrl(){
 
         //return env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY');
-        echo 'OK';
+
         return $this->url;
         
     }
@@ -328,6 +328,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
                 $result = array_merge($result, $this->listDirectoryContents($path));
             }
         }
+        echo 'OK1';
 
         return $result;
     }
@@ -373,6 +374,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
         if ($this->upload($path, $contents, $config) === false) {
             return false;
         }
+        echo 'OK2';
 
         return compact('contents', 'visibility', 'path');
     }
@@ -410,6 +412,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
         if ($config && $visibility = $config->get('visibility')) {
             $this->setVisibility($path, $visibility);
         }
+        echo 'OK3';
 
         return true;
     }
