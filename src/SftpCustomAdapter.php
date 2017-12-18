@@ -74,6 +74,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
      
     protected function prefix($path)
     {
+        
         return $this->root.ltrim($path, $this->separator);
     }
 
@@ -98,6 +99,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
     public function getUrl(){
 
         //return env('CDN_PUBLIC').'/'.env('CDN_BASE_SUBDIRECTORY');
+        echo 'OK';
         return $this->url;
         
     }
