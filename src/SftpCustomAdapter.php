@@ -461,6 +461,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
      */
     public function update($path, $contents, Config $config)
     {
+        echo 'OK4';
         return $this->write($path, $contents, $config);
     }
 
@@ -469,6 +470,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
      */
     public function updateStream($path, $contents, Config $config)
     {
+        echo 'OK5';
         return $this->writeStream($path, $contents, $config);
     }
 
@@ -570,6 +572,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
      */
     public function getVisibility($path)
     {
+        echo 'OK5';
         return $this->getMetadata($path);
     }
 
