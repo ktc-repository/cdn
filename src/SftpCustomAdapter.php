@@ -412,8 +412,14 @@ class SftpCustomAdapter extends AbstractFtpAdapter
         if ($config && $visibility = $config->get('visibility')) {
             $this->setVisibility($path, $visibility);
         }
-        echo 'OK3';
-        
+        print_r($path);
+        echo '<hr/>';
+        print_r($contents);
+        echo '<hr/>';
+        print_r($config);
+        echo '<hr/>';
+
+
 
         return true;
     }
