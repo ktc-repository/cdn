@@ -413,6 +413,7 @@ class SftpCustomAdapter extends AbstractFtpAdapter
             $this->setVisibility($path, $visibility);
         }
         echo 'OK3';
+        
 
         return true;
     }
